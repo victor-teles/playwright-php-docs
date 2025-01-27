@@ -3,5 +3,5 @@
   "description": "How to use PlaywrightPHP",
   "icon": "Building2",
   "root": true,
-  "pages": ["---Getting Started---", "index", "differences", "---Examples---"]
+  "pages": ["---Getting Started---", "index", "differences", "---Examples---", "basic", "remote", "selectors", "take-screenshot"]
 }
