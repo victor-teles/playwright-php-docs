@@ -3,4 +3,33 @@ title: Remote Browser
 description: Run PlaywrightPHP tests in a remote browser
 ---
 
-Work in progress 👷‍♂️🚧
+To run PlaywrightPHP tests with a remote browser, you can use the `connectOverCDP` method.
+
+```php
+$playwright = new Playwright();
+$browser = $playwright->connectOverCDP(['wsEndpoint' => 'http://127.0.0.1:9222']);
+$page = $browser->newPage();
+
+$page->goto('https://example.com');
+```
+
+## Chrome DevTools Protocol
+
+You can start a cdpSession to communicate with Chrome DevTools Protocol, and send commands and listen to events.
+
+### Sending commands
+
+```php
+$cdpSession = $page->context()->newCDPSession($page);
+
+$cdpSession->send('Animation.enable');
+```
+
+### Listening to events
+
+```php
+$cdpSession->on('Animation.onAnimationCanceled', new JsFunction([$eventData], '
+    echo "Animation canceled: " . $eventData['id'] . PHP_EOL;
+'));
+```
+

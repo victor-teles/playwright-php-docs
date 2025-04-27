@@ -3,4 +3,33 @@ title: Take Screenshot
 description: Take a screenshot of your browser
 ---
 
-Work in progress 👷‍♂️🚧
+To take a screenshot of your browser, you can use the `screenshot` method.
+Here is an basic example of how to take a screenshot of your page and save it to a file:
+
+```php
+use Playwright\Playwright;
+
+$playwright = new Playwright();
+$browser = $playwright->launch();
+$page = $browser->newPage();
+
+$page->goto('https://example.com');
+
+$page->screenshot(['path' => 'screenshot.png']);
+```
+
+## Scrollable screenshots
+
+To take a screenshot of a scrollable page, you can use the `screenshot` method with the `fullPage` option.
+
+```php
+$page->screenshot(['path' => 'screenshot.png', 'fullPage' => true]);
+```
+
+## Element screenshots
+
+To take a screenshot of an element, you can use the `screenshot` method with the `path` option.
+
+```php
+$page->locator('#element')->screenshot(['path' => 'screenshot.png']);
+```

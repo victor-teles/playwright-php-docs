@@ -1,0 +1,30 @@
+---
+title: Locators
+description: Selectors and locators
+---
+
+Locators are the central piece of Playwright's auto-waiting and retry-ability. In a nutshell, locators represent a way to find element(s) on the page at any moment.
+
+## Basic Locators
+
+### Locate by title
+
+```php
+$element = $page->getByTitle('My Page Title');
+```
+
+### Locate label
+
+```php
+$element = $page->getByLabel('My Label');
+```
+
+### Locate by placeholder
+
+```php
+$element = $page->getByPlaceholder('My Placeholder');
+
+$element->fill('My New Value');
+```
+
+Checkout the [official documentation](https://playwright.dev/docs/locators) for more details.
